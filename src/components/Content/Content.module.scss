@@ -1,0 +1,66 @@
+.content {
+	border: 0.5px solid rgb(217, 217, 217);
+	border-radius: 30px;
+	background: rgba(217, 217, 217, 0);
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+
+	&__signup {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		z-index: 10;
+	}
+	&__slider {
+		height: calc(100vh - 15px); /// ???
+	}
+
+	&__image {
+		width: 100%;
+		height: calc(100vh - 15px); /// ???
+		// object-fit: cover;
+	}
+
+	&__pagination {
+		position: absolute;
+		top: 50%;
+		right: 55px;
+		transform: translate(0px, -50%);
+		z-index: 10;
+
+		// height: 108px;
+		// overflow: hidden;
+	}
+
+	&__bullet {
+		display: block;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: rgb(217, 217, 217);
+		cursor: pointer;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		&_active {
+			background: rgb(74, 188, 193);
+			cursor: default;
+		}
+	}
+
+	&__video {
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+		z-index: 10;
+	}
+
+	&__privacy {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 20;
+	}
+}
