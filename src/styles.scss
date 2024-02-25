@@ -8,4 +8,9 @@ body {
 .app {
 	display: grid;
 	grid-template-columns: 220px 1fr;
+
+	@media (max-width: 991px) {
+		grid-template-columns: none;
+		grid-template-rows: auto 1fr;
+	}
 }

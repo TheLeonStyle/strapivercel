@@ -1,3 +1,5 @@
+@import "../../scss/mixins";
+
 .aside {
 	border-radius: 0px 30px 0px 0px;
 	background: rgba(139, 139, 138, 0.05);
@@ -7,6 +9,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	height: 100%;
+
+	@media (max-width: 991px) {
+		flex-direction: row;
+		padding: 8px 15px;
+		border-radius: 0px 0px 0px 30px;
+	}
 	// .aside__logo
 	&__logo {
 		text-align: center;
@@ -15,12 +24,21 @@
 	&__image {
 		width: 140px;
 		height: 140px;
+		// ???
+		@media (max-width: 991px) {
+			@include adaptiveValue("width", 80, 50, 991, 320, 1);
+			@include adaptiveValue("height", 80, 50, 991, 320, 1);
+			// box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		}
 	}
 	// .aside__slogan
 	&__slogan {
 		color: rgb(139, 139, 138);
 		font-size: 12px;
 		line-height: 15px;
+		@media (max-width: 991px) {
+			display: none;
+		}
 	}
 	// .aside__nav
 	&__nav {
@@ -30,6 +48,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+
+		@media (max-width: 991px) {
+			flex-direction: row;
+			gap: 20px;
+		}
 	}
 	// .aside__button
 	&__button {
@@ -41,6 +64,11 @@
 		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 		transition: box-shadow 0.3s ease 0s;
 
+		@media (max-width: 991px) {
+			@include adaptiveValue("width", 50, 40, 991, 320, 1);
+			@include adaptiveValue("height", 50, 40, 991, 320, 1);
+		}
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -48,10 +76,19 @@
 
 		&.active {
 			box-shadow: none;
+			transition: transform 0.3s ease 0s;
+
+			@media (max-width: 991px) {
+				box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+				transform: scale(1.3);
+			}
 		}
 	}
 	// .aside__bottom
 	&__bottom {
+		@media (max-width: 991px) {
+			display: none;
+		}
 	}
 	// .aside__title
 	&__title {

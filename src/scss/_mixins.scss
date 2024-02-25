@@ -16,7 +16,6 @@ $containerPadding: 30px;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
 [class*="__container"] {
-	max-width: $maxWidthContainer;
 	box-sizing: content-box;
 	margin: 0 auto;
 	padding: 0 math.div($containerPadding, 2);

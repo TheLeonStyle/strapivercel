@@ -5,6 +5,7 @@
 	margin: 5px;
 	position: relative;
 	overflow: hidden;
+	height: 99%;
 
 	&__signup {
 		position: absolute;
@@ -12,8 +13,26 @@
 		right: 15px;
 		z-index: 10;
 	}
+
+	&__container {
+		height: calc(100vh - 15px); /// ???
+		// overflow: auto;
+	}
+
 	&__slider {
 		height: calc(100vh - 15px); /// ???
+
+		& > div > div {
+			@media (max-width: 767px) {
+				padding: 50px 0;
+			}
+		}
+	}
+
+	&__slide {
+		&_calculator {
+			overflow: auto;
+		}
 	}
 
 	&__image {
@@ -25,9 +44,13 @@
 	&__pagination {
 		position: absolute;
 		top: 50%;
-		right: 55px;
+		right: 10px;
 		transform: translate(0px, -50%);
 		z-index: 10;
+
+		// @media (max-width: 1330px) {
+		// 	right: 10px;
+		// }
 
 		// height: 108px;
 		// overflow: hidden;
