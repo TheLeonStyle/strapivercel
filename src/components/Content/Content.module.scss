@@ -12,6 +12,10 @@
 		top: 15px;
 		right: 15px;
 		z-index: 10;
+		@media (max-width: 991px) {
+			right: 50%;
+			transform: translate(50%, 0px);
+		}
 	}
 
 	&__container {
@@ -31,7 +35,7 @@
 
 	&__slide {
 		&_calculator {
-			overflow: auto;
+			// overflow: auto;
 		}
 	}
 

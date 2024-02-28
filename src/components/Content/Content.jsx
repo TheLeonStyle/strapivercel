@@ -26,7 +26,9 @@ const Content = ({ navActive, token }) => {
 
   useEffect(() => {
     const slideSelection =
-      navActive === 1
+      navActive === 0
+        ? 'mains'
+        : navActive === 1
         ? 'heads'
         : navActive === 2
         ? 'hunters'
@@ -93,7 +95,7 @@ const Content = ({ navActive, token }) => {
           {slides.map((obj) => (
             <SwiperSlide>
               <img
-                src={`${
+                src={`${STRAPI_URL}${
                   windowWidth > 767
                     ? obj.attributes.imagePc.data?.attributes?.url
                     : obj.attributes.imageMobile.data?.attributes?.url

@@ -35,7 +35,12 @@ const Aside = ({ navActive, setNavActive }) => {
   return (
     <aside className={styles.aside}>
       <div className={styles.aside__logo}>
-        <img src={LOGO} alt="Логотип" className={styles.aside__image} />
+        <img
+          src={LOGO}
+          alt="Логотип"
+          className={styles.aside__image}
+          onClick={() => onClickNavigation(0)}
+        />
         <p className={styles.aside__slogan}>Автоматизация выездного медицинского персонала</p>
       </div>
 
@@ -81,23 +86,25 @@ const Aside = ({ navActive, setNavActive }) => {
         </Swiper>
       </nav>
 
-      <div className={styles.aside__bottom}>
-        <p className={styles.aside__title}>Вопросы:</p>
-        <a href="mailto:hi@ameoli.ru" className={styles.aside__link}>
-          hi@ameoli.ru
-        </a>
-        <p className={styles.aside__title}>Для СМИ</p>
-        <a href="mailto:pr@ameoli.ru" className={styles.aside__link}>
-          pr@ameoli.ru
-        </a>
-        <div className={styles.aside__socials}>
-          <p className={styles.aside__title}>Напишите в:</p>
-          <a href="" className={styles.aside__social}>
-            <img src={WHATSAPP} alt="Иконка ватсапп" />
+      <div className={styles.aside__hover}>
+        <div className={styles.aside__bottom}>
+          <p className={styles.aside__title}>Вопросы:</p>
+          <a href="mailto:hi@ameoli.ru" className={styles.aside__link}>
+            hi@ameoli.ru
           </a>
-          <a href="" className={styles.aside__social}>
-            <img src={TELEGRAM} alt="Иконка телеграм" />
+          <p className={styles.aside__title}>Для СМИ</p>
+          <a href="mailto:pr@ameoli.ru" className={styles.aside__link}>
+            pr@ameoli.ru
           </a>
+          <div className={styles.aside__socials}>
+            <p className={styles.aside__title}>Напишите в:</p>
+            <a href="" className={styles.aside__social}>
+              <img src={WHATSAPP} alt="Иконка ватсапп" />
+            </a>
+            <a href="" className={styles.aside__social}>
+              <img src={TELEGRAM} alt="Иконка телеграм" />
+            </a>
+          </div>
         </div>
       </div>
     </aside>
