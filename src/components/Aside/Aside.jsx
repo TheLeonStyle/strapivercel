@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+
 import styles from './Aside.module.scss';
 
 import LOGO from './../../img/Logo.svg';
@@ -9,12 +12,25 @@ import NAV2 from './../../img/aside/navigation/2.svg';
 import NAV3 from './../../img/aside/navigation/3.svg';
 import NAV4 from './../../img/aside/navigation/4.svg';
 
-const Aside = () => {
-  const [navActive, setNavActive] = useState(1);
+const Aside = ({ navActive, setNavActive }) => {
+  // const [windowInner, setWindowWidth] = useState(0);
 
   const onClickNavigation = (index) => {
     setNavActive(index);
   };
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+  //   console.log(windowInner);
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, [windowInner]);
 
   return (
     <aside className={styles.aside}>
@@ -24,26 +40,45 @@ const Aside = () => {
       </div>
 
       <nav className={styles.aside__nav}>
-        <button
-          onClick={() => onClickNavigation(1)}
-          className={`${styles.aside__button} ${navActive === 1 ? styles.active : ''}`}>
-          <img src={NAV1} alt="Навигация" />
-        </button>
-        <button
-          onClick={() => onClickNavigation(2)}
-          className={`${styles.aside__button} ${navActive === 2 ? styles.active : ''}`}>
-          <img src={NAV2} alt="Навигация" />
-        </button>
-        <button
-          onClick={() => onClickNavigation(3)}
-          className={`${styles.aside__button} ${navActive === 3 ? styles.active : ''}`}>
-          <img src={NAV3} alt="Навигация" />
-        </button>
-        <button
-          onClick={() => onClickNavigation(4)}
-          className={`${styles.aside__button} ${navActive === 4 ? styles.active : ''}`}>
-          <img src={NAV4} alt="Навигация" />
-        </button>
+        <Swiper
+          direction="horizontal"
+          spaceBetween={10}
+          slidesPerView={4}
+          className={styles.aside__slider}
+          breakpoints={{
+            991: {
+              direction: 'vertical',
+            },
+          }}>
+          <SwiperSlide>
+            <button
+              onClick={() => onClickNavigation(1)}
+              className={`${styles.aside__button} ${navActive === 1 ? styles.active : ''}`}>
+              <img src={NAV1} alt="Навигация" />
+            </button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <button
+              onClick={() => onClickNavigation(2)}
+              className={`${styles.aside__button} ${navActive === 2 ? styles.active : ''}`}>
+              <img src={NAV2} alt="Навигация" />
+            </button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <button
+              onClick={() => onClickNavigation(3)}
+              className={`${styles.aside__button} ${navActive === 3 ? styles.active : ''}`}>
+              <img src={NAV3} alt="Навигация" />
+            </button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <button
+              onClick={() => onClickNavigation(4)}
+              className={`${styles.aside__button} ${navActive === 4 ? styles.active : ''}`}>
+              <img src={NAV4} alt="Навигация" />
+            </button>
+          </SwiperSlide>
+        </Swiper>
       </nav>
 
       <div className={styles.aside__bottom}>

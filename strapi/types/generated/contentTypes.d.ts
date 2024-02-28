@@ -362,36 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiSlideSlide extends Schema.CollectionType {
-  collectionName: 'slides';
-  info: {
-    singularName: 'slide';
-    pluralName: 'slides';
-    displayName: 'slide';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    ImagePc: Attribute.Media & Attribute.Required;
-    ImageMobile: Attribute.Media & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::slide.slide',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::slide.slide',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -813,6 +783,160 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrivacyPrivacy extends Schema.SingleType {
+  collectionName: 'privacies';
+  info: {
+    singularName: 'privacy';
+    pluralName: 'privacies';
+    displayName: 'Privacy';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.Text & Attribute.Required;
+    button: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlideAmeoliSlideAmeoli extends Schema.CollectionType {
+  collectionName: 'slide_ameolis';
+  info: {
+    singularName: 'slide-ameoli';
+    pluralName: 'slide-ameolis';
+    displayName: 'slideAmeoli';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    imagePc: Attribute.Media & Attribute.Required;
+    imageMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide-ameoli.slide-ameoli',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide-ameoli.slide-ameoli',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlideHeadSlideHead extends Schema.CollectionType {
+  collectionName: 'slide_heads';
+  info: {
+    singularName: 'slide-head';
+    pluralName: 'slide-heads';
+    displayName: 'slideHead';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    imagePc: Attribute.Media & Attribute.Required;
+    imageMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide-head.slide-head',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide-head.slide-head',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlideHospitalSlideHospital extends Schema.CollectionType {
+  collectionName: 'slide_hospitals';
+  info: {
+    singularName: 'slide-hospital';
+    pluralName: 'slide-hospitals';
+    displayName: 'slideHospital';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    imagePc: Attribute.Media & Attribute.Required;
+    imageMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide-hospital.slide-hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide-hospital.slide-hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlideHunterSlideHunter extends Schema.CollectionType {
+  collectionName: 'slide_hunters';
+  info: {
+    singularName: 'slide-hunter';
+    pluralName: 'slide-hunters';
+    displayName: 'slideHunter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    imagePc: Attribute.Media & Attribute.Required;
+    imageMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide-hunter.slide-hunter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide-hunter.slide-hunter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -823,7 +947,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::slide.slide': ApiSlideSlide;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -832,6 +955,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::slide-ameoli.slide-ameoli': ApiSlideAmeoliSlideAmeoli;
+      'api::slide-head.slide-head': ApiSlideHeadSlideHead;
+      'api::slide-hospital.slide-hospital': ApiSlideHospitalSlideHospital;
+      'api::slide-hunter.slide-hunter': ApiSlideHunterSlideHunter;
     }
   }
 }

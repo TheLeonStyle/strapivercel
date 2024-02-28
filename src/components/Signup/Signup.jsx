@@ -10,10 +10,15 @@ const Signup = () => {
 
   return (
     <div className={`${styles.signup} ${signupActive ? styles.active : ''}`}>
-      <a href="#Signup" onClick={toggleSignup} className={styles.signup__signup}>
+      <a
+        href="https://ameoli.4vek.ru/site/login"
+        onClick={toggleSignup}
+        className={styles.signup__signup}>
         Вход
       </a>
-      <p className={styles.signup__text}>Регистрация</p>
+      <a href="https://ameoli.4vek.ru/site/registration" className={styles.signup__text}>
+        Регистрация
+      </a>
     </div>
   );
 };

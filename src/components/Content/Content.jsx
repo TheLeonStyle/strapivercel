@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { STRAPI_URL } from '../../utils/URL';
 import { Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -17,8 +19,53 @@ import IMAGE3 from './../../img/slides/3.jpeg';
 import IMAGE4 from './../../img/slides/4.jpeg';
 import IMAGE5 from './../../img/slides/5.jpeg';
 
-const Content = () => {
+const Content = ({ navActive, token }) => {
   const [privacyActive, setPrivacyActive] = useState(true);
+  const [slides, setSlides] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const slideSelection =
+      navActive === 1
+        ? 'heads'
+        : navActive === 2
+        ? 'hunters'
+        : navActive === 3
+        ? 'hospitals'
+        : 'Ameolis';
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${STRAPI_URL}/api/slide-${slideSelection}?populate=*`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setSlides(response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, [navActive]);
+
+  // console.log(slides);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowWidth]);
 
   return (
     <main className={styles.content}>
@@ -41,7 +88,20 @@ const Content = () => {
             bulletClass: styles.content__bullet,
             bulletActiveClass: styles.content__bullet_active,
           }}>
-          <SwiperSlide>
+          {slides.map((obj) => (
+            <SwiperSlide>
+              <img
+                src={`${STRAPI_URL}${
+                  windowWidth > 767
+                    ? obj.attributes.imagePc.data?.attributes?.url
+                    : obj.attributes.imageMobile.data?.attributes?.url
+                }`}
+                alt="Изображение слайда"
+                className={styles.content__image}
+              />
+            </SwiperSlide>
+          ))}
+          {/* <SwiperSlide>
             <img src={IMAGE1} alt="" className={styles.content__image} />
           </SwiperSlide>
           <SwiperSlide>
@@ -55,7 +115,7 @@ const Content = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img src={IMAGE5} alt="" className={styles.content__image} />
-          </SwiperSlide>
+          </SwiperSlide> */}
           <SwiperSlide style={{ overflow: 'auto' }}>
             <Calculator />
           </SwiperSlide>
@@ -70,7 +130,7 @@ const Content = () => {
 
       {privacyActive && (
         <div className={styles.content__privacy}>
-          <Privacy setPrivacyActive={setPrivacyActive} />
+          <Privacy setPrivacyActive={setPrivacyActive} token={token} />
         </div>
       )}
     </main>
