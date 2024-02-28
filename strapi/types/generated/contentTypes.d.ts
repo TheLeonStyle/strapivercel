@@ -937,6 +937,37 @@ export interface ApiSlideHunterSlideHunter extends Schema.CollectionType {
   };
 }
 
+export interface ApiSlideMainSlideMain extends Schema.CollectionType {
+  collectionName: 'slide_mains';
+  info: {
+    singularName: 'slide-main';
+    pluralName: 'slide-mains';
+    displayName: 'slideMain';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    imagePc: Attribute.Media & Attribute.Required;
+    imageMobile: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide-main.slide-main',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide-main.slide-main',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -960,6 +991,7 @@ declare module '@strapi/types' {
       'api::slide-head.slide-head': ApiSlideHeadSlideHead;
       'api::slide-hospital.slide-hospital': ApiSlideHospitalSlideHospital;
       'api::slide-hunter.slide-hunter': ApiSlideHunterSlideHunter;
+      'api::slide-main.slide-main': ApiSlideMainSlideMain;
     }
   }
 }

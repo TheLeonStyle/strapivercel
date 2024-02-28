@@ -13,24 +13,9 @@ import NAV3 from './../../img/aside/navigation/3.svg';
 import NAV4 from './../../img/aside/navigation/4.svg';
 
 const Aside = ({ navActive, setNavActive }) => {
-  // const [windowInner, setWindowWidth] = useState(0);
-
   const onClickNavigation = (index) => {
     setNavActive(index);
   };
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   console.log(windowInner);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, [windowInner]);
 
   return (
     <aside className={styles.aside}>

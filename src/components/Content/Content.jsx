@@ -97,8 +97,8 @@ const Content = ({ navActive, token }) => {
               <img
                 src={`${STRAPI_URL}${
                   windowWidth > 767
-                    ? obj.attributes.imagePc.data?.attributes?.url
-                    : obj.attributes.imageMobile.data?.attributes?.url
+                    ? obj.attributes?.imagePc?.data?.attributes?.url
+                    : obj.attributes?.imageMobile?.data?.attributes?.url
                 }`}
                 alt="Изображение слайда"
                 className={styles.content__image}
