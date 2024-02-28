@@ -67,6 +67,8 @@ const Content = ({ navActive, token }) => {
     };
   }, [windowWidth]);
 
+  // ${STRAPI_URL}
+
   return (
     <main className={styles.content}>
       <div className={styles.content__signup}>
@@ -91,7 +93,7 @@ const Content = ({ navActive, token }) => {
           {slides.map((obj) => (
             <SwiperSlide>
               <img
-                src={`${STRAPI_URL}${
+                src={`${
                   windowWidth > 767
                     ? obj.attributes.imagePc.data?.attributes?.url
                     : obj.attributes.imageMobile.data?.attributes?.url
