@@ -3,22 +3,12 @@ import styles from './Calculator.module.scss';
 
 const Calculator = () => {
   const [valueTrips, setValueTrips] = useState(1);
-  // const [valueRepeated, setValueRepeated] = useState(1);
-  // const [valueHospitalization, setValueHospitalization] = useState(1);
   const [valueEmployees, setValueEmployees] = useState(1);
 
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    // Тариф - 19.99 Коэфициент - 0 Выезд - 1 Выручка - 19.99
-    // Тариф - 19.97 Коэфициент - 0.2 Выезд - 1 Выручка - 39.96
-    // Тариф - 19.95 Коэфициент - 0.2 Выезд - 1 Выручка - 59.91
-    // Тариф - 19.93 Коэфициент - 0.2 Выезд - 1 Выручка - 79.84
-    // Тариф - 19.91 Коэфициент - 0.2 Выезд - 1 Выручка - 99.75
-    // Тариф - 19.89 Коэфициент - 0.2 Выезд - 1 Выручка - 119.64
-    // Тариф - 19.87 Коэфициент - 0.2 Выезд - 1 Выручка - 139.51
-    // Тариф - 19.85 Коэфициент - 0.2 Выезд - 1 Выручка - 159.36
-    setTotalPrice(valueTrips * 19, 99 - (19, 99 - 0.02499) / 1000);
+    setTotalPrice(valueTrips * 29.99 - (29, 99 - 0.02499) / 1000 + 1790 * valueEmployees);
   }, [valueTrips, valueEmployees]);
 
   return (
@@ -42,39 +32,6 @@ const Calculator = () => {
               <p className={styles.calculator__quantity_max}>1000</p>
             </div>
           </div>
-
-          {/* 
-          <div className={styles.calculator__tab}>
-            <p className={styles.calculator__subtitle}>Кол-во повторных выездов</p>
-            <input
-              type="range"
-              className={styles.calculator__range}
-              onChange={(event) => setValueRepeated(event.target.value)}
-              value={valueRepeated}
-              min={1}
-              max={1000}
-            />
-            <div className={styles.calculator__bottom}>
-              <p className={styles.calculator__quantity}>{valueRepeated}</p>
-              <p className={styles.calculator__quantity_max}>1000</p>
-            </div>
-          </div>
-
-          <div className={styles.calculator__tab}>
-            <p className={styles.calculator__subtitle}>Кол-во выездов/мес:</p>
-            <input
-              type="range"
-              className={styles.calculator__range}
-              onChange={(event) => setValueHospitalization(event.target.value)}
-              value={valueHospitalization}
-              min={1}
-              max={1000}
-            />
-            <div className={styles.calculator__bottom}>
-              <p className={styles.calculator__quantity}>{valueHospitalization}</p>
-              <p className={styles.calculator__quantity_max}>1000</p>
-            </div>
-          </div> */}
 
           <div className={styles.calculator__tab}>
             <p className={styles.calculator__subtitle}>Кол-во сотрудников*</p>
