@@ -39,7 +39,7 @@ const Aside = ({ navActive, setNavActive }) => {
             ? styles.aside__nav_3
             : navActive === 4
             ? styles.aside__nav_4
-            : ''
+            : styles.aside__nav_1
         }`}>
         <button
           onClick={() => onClickNavigation(1)}

@@ -181,28 +181,12 @@
 			@include adaptiveValue("width", 50, 35, 991, 320, 1);
 			@include adaptiveValue("height", 50, 35, 991, 320, 1);
 			border-radius: 5px;
-
-			// &_1 {
-			// 	width: 35px;
-			// 	height: 35px;
-			// }
-			// &_2 {
-			// 	width: 30px;
-			// 	height: 30px;
-
-			// 	&.active ~ .aside__button_1 {
-			// 		width: 30px;
-			// 		height: 30px;
-			// 	}
-			// }
-			// &_3 {
-			// 	width: 25px;
-			// 	height: 25px;
-			// }
-			// &_4 {
-			// 	width: 20px;
-			// 	height: 20px;
-			// }
+		}
+		&_2,
+		&_3 {
+			@media (max-width: 600px) {
+				border-radius: 2px;
+			}
 		}
 
 		img {
