@@ -29,7 +29,50 @@ const Aside = ({ navActive, setNavActive }) => {
         <p className={styles.aside__slogan}>Автоматизация выездного медицинского персонала</p>
       </div>
 
-      <nav className={styles.aside__nav}>
+      <nav
+        className={`${styles.aside__nav} ${
+          navActive === 1
+            ? styles.aside__nav_1
+            : navActive === 2
+            ? styles.aside__nav_2
+            : navActive === 3
+            ? styles.aside__nav_3
+            : navActive === 4
+            ? styles.aside__nav_4
+            : ''
+        }`}>
+        <button
+          onClick={() => onClickNavigation(1)}
+          className={`${styles.aside__button} ${styles.aside__button_1} ${
+            navActive === 1 ? styles.active : ''
+          }`}>
+          <img src={NAV1} alt="Навигация" />
+        </button>
+
+        <button
+          onClick={() => onClickNavigation(2)}
+          className={`${styles.aside__button} ${styles.aside__button_2} ${
+            navActive === 2 ? styles.active : ''
+          }`}>
+          <img src={NAV2} alt="Навигация" />
+        </button>
+
+        <button
+          onClick={() => onClickNavigation(3)}
+          className={`${styles.aside__button} ${styles.aside__button_3} ${
+            navActive === 3 ? styles.active : ''
+          }`}>
+          <img src={NAV3} alt="Навигация" />
+        </button>
+
+        <button
+          onClick={() => onClickNavigation(4)}
+          className={`${styles.aside__button} ${styles.aside__button_4} ${
+            navActive === 4 ? styles.active : ''
+          }`}>
+          <img src={NAV4} alt="Навигация" />
+        </button>
+        {/* 
         <Swiper
           direction="horizontal"
           spaceBetween={10}
@@ -68,7 +111,7 @@ const Aside = ({ navActive, setNavActive }) => {
               <img src={NAV4} alt="Навигация" />
             </button>
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
       </nav>
 
       <div className={styles.aside__hover}>

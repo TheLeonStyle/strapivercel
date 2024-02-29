@@ -46,6 +46,102 @@
 		flex: 1;
 		display: flex;
 		justify-content: center;
+		position: relative;
+
+		// ====
+		flex-direction: column;
+		gap: 20px;
+
+		@media (max-width: 991px) {
+			flex-direction: row;
+			position: relative;
+
+			&_1 {
+				.aside__button_1 {
+					width: 35px;
+					height: 35px;
+				}
+				.aside__button_2 {
+					width: 30px;
+					height: 30px;
+				}
+				.aside__button_3 {
+					width: 25px;
+					height: 25px;
+				}
+				.aside__button_4 {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			&_2 {
+				.aside__button_1 {
+					width: 20px;
+					height: 20px;
+
+					position: absolute;
+					left: 0;
+				}
+				.aside__button_2 {
+					width: 35px;
+					height: 35px;
+				}
+				.aside__button_3 {
+					width: 25px;
+					height: 25px;
+				}
+				.aside__button_4 {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			&_3 {
+				.aside__button_1 {
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					left: 0;
+				}
+				.aside__button_2 {
+					width: 15px;
+					height: 15px;
+					position: absolute;
+					left: 5px;
+				}
+				.aside__button_3 {
+					width: 35px;
+					height: 35px;
+				}
+				.aside__button_4 {
+					width: 25px;
+					height: 25px;
+				}
+			}
+			&_4 {
+				.aside__button_1 {
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					left: 0;
+				}
+				.aside__button_2 {
+					width: 15px;
+					height: 15px;
+					position: absolute;
+					left: 5px;
+				}
+				.aside__button_3 {
+					width: 10px;
+					height: 10px;
+					position: absolute;
+					left: 10px;
+				}
+				.aside__button_4 {
+					width: 35px;
+					height: 35px;
+				}
+			}
+		}
 	}
 
 	// .aside__slider
@@ -77,14 +173,34 @@
 		overflow: hidden;
 		border-radius: 10px;
 		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-		transition:
-			box-shadow 0.3s ease 0s,
-			transform 0.3s ease 0s;
+		transition: box-shadow 0.3s ease 0s;
 
 		@media (max-width: 991px) {
-			@include adaptiveValue("width", 50, 40, 991, 320, 1);
-			@include adaptiveValue("height", 50, 40, 991, 320, 1);
-			transform: scale(0.8);
+			@include adaptiveValue("width", 50, 35, 991, 320, 1);
+			@include adaptiveValue("height", 50, 35, 991, 320, 1);
+			border-radius: 5px;
+
+			// &_1 {
+			// 	width: 35px;
+			// 	height: 35px;
+			// }
+			// &_2 {
+			// 	width: 30px;
+			// 	height: 30px;
+
+			// 	&.active ~ .aside__button_1 {
+			// 		width: 30px;
+			// 		height: 30px;
+			// 	}
+			// }
+			// &_3 {
+			// 	width: 25px;
+			// 	height: 25px;
+			// }
+			// &_4 {
+			// 	width: 20px;
+			// 	height: 20px;
+			// }
 		}
 
 		img {
@@ -97,7 +213,8 @@
 
 			@media (max-width: 991px) {
 				box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-				transform: scale(1);
+				width: 35px;
+				height: 35px;
 			}
 		}
 	}
