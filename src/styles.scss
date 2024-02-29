@@ -1,5 +1,9 @@
 @import "./scss/mixins";
 @import "./scss/null";
+html,
+body {
+	font-size: 16px;
+}
 
 body {
 	font-family: "Scada", sans-serif;

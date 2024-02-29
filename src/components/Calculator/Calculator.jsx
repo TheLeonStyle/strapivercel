@@ -3,22 +3,22 @@ import styles from './Calculator.module.scss';
 
 const Calculator = () => {
   const [valueTrips, setValueTrips] = useState(1);
-  const [valueRepeated, setValueRepeated] = useState(1);
-  const [valueHospitalization, setValueHospitalization] = useState(1);
+  // const [valueRepeated, setValueRepeated] = useState(1);
+  // const [valueHospitalization, setValueHospitalization] = useState(1);
   const [valueEmployees, setValueEmployees] = useState(1);
 
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
-    // Тариф - 19.99 Коэфициент - 0 Выезд - 1 Выручка - 19.99
-    // Тариф - 19.97 Коэфициент - 0.2 Выезд - 1 Выручка - 39.96
-    // Тариф - 19.95 Коэфициент - 0.2 Выезд - 1 Выручка - 59.91
-    // Тариф - 19.93 Коэфициент - 0.2 Выезд - 1 Выручка - 79.84
-    // Тариф - 19.91 Коэфициент - 0.2 Выезд - 1 Выручка - 99.75
-    // Тариф - 19.89 Коэфициент - 0.2 Выезд - 1 Выручка - 119.64
-    // Тариф - 19.87 Коэфициент - 0.2 Выезд - 1 Выручка - 139.51
-    // Тариф - 19.85 Коэфициент - 0.2 Выезд - 1 Выручка - 159.36
-  }, [valueTrips, valueRepeated, valueHospitalization, valueEmployees]);
+  // useEffect(() => {
+  // Тариф - 19.99 Коэфициент - 0 Выезд - 1 Выручка - 19.99
+  // Тариф - 19.97 Коэфициент - 0.2 Выезд - 1 Выручка - 39.96
+  // Тариф - 19.95 Коэфициент - 0.2 Выезд - 1 Выручка - 59.91
+  // Тариф - 19.93 Коэфициент - 0.2 Выезд - 1 Выручка - 79.84
+  // Тариф - 19.91 Коэфициент - 0.2 Выезд - 1 Выручка - 99.75
+  // Тариф - 19.89 Коэфициент - 0.2 Выезд - 1 Выручка - 119.64
+  // Тариф - 19.87 Коэфициент - 0.2 Выезд - 1 Выручка - 139.51
+  // Тариф - 19.85 Коэфициент - 0.2 Выезд - 1 Выручка - 159.36
+  // }, [valueTrips, valueEmployees]);
 
   return (
     <div className={styles.calculator}>
@@ -42,6 +42,7 @@ const Calculator = () => {
             </div>
           </div>
 
+          {/* 
           <div className={styles.calculator__tab}>
             <p className={styles.calculator__subtitle}>Кол-во повторных выездов</p>
             <input
@@ -72,7 +73,7 @@ const Calculator = () => {
               <p className={styles.calculator__quantity}>{valueHospitalization}</p>
               <p className={styles.calculator__quantity_max}>1000</p>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.calculator__tab}>
             <p className={styles.calculator__subtitle}>Кол-во сотрудников*</p>
@@ -94,15 +95,15 @@ const Calculator = () => {
         <div className={styles.calculator__check}>
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Стоимость вызовов/мес:</p>
-            <p className={styles.calculator__price}>19,99 руб.</p>
+            <p className={styles.calculator__price}>29,99 руб.</p>
           </div>
 
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Аренда ПО (до 201 выезда):</p>
-            <p className={styles.calculator__price}>2190 руб/мес.</p>
+            <p className={styles.calculator__price}>990 руб/мес.</p>
           </div>
 
-          <div className={styles.calculator__row}>
+          {/* <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Повторные выезды:</p>
             <p className={styles.calculator__price}>10 руб.</p>
           </div>
@@ -115,7 +116,7 @@ const Calculator = () => {
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Передача в стационар:</p>
             <p className={styles.calculator__price}>10 руб.</p>
-          </div>
+          </div> */}
 
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Выпуск мобильной УКЭП:</p>
@@ -128,10 +129,10 @@ const Calculator = () => {
           </div>
 
           <div className={styles.calculator__inner}>
-            <div className={styles.calculator__row}>
+            {/* <div className={styles.calculator__row}>
               <p className={styles.calculator__subtitle}>Начислим бонусом:</p>
               <p className={styles.calculator__price}>50 бонусов</p>
-            </div>
+            </div> */}
 
             <div className={styles.calculator__row}>
               <p className={styles.calculator__subtitle}>Итого AmeOli:</p>
