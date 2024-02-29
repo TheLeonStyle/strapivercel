@@ -95,7 +95,7 @@ const Content = ({ navActive, token }) => {
           {slides.map((obj) => (
             <SwiperSlide>
               <img
-                src={`${STRAPI_URL}${
+                src={`${
                   windowWidth > 767
                     ? obj.attributes?.imagePc?.data?.attributes?.url
                     : obj.attributes?.imageMobile?.data?.attributes?.url
