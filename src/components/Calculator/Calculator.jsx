@@ -8,7 +8,8 @@ const Calculator = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    setTotalPrice(valueTrips * 29.99 - (29, 99 - 0.02499) / 1000 + 1790 * valueEmployees);
+		// valueTrips * 39 - (39 - 0.02499) / 1000 + 1790 * valueEmployees
+    setTotalPrice(39 - (39 / 1000) * valueTrips);
   }, [valueTrips, valueEmployees]);
 
   return (
@@ -56,10 +57,10 @@ const Calculator = () => {
             <p className={styles.calculator__price}>29,99 руб.</p>
           </div>
 
-          <div className={styles.calculator__row}>
+          {/* <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Аренда ПО (до 201 выезда):</p>
             <p className={styles.calculator__price}>990 руб/мес.</p>
-          </div>
+          </div> */}
 
           {/* <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Повторные выезды:</p>
@@ -78,7 +79,7 @@ const Calculator = () => {
 
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Выпуск мобильной УКЭП:</p>
-            <p className={styles.calculator__price}>2790 руб./сотрудник (365 дней)*</p>
+            <p className={styles.calculator__price}>2790 руб./сотрудник (365 дней)</p>
             <div className={styles.calculator__popup}>
               По умолчанию тариф выпуска УКЭП стоит на 1 год использования. Вы можете выбрать
               интервалы: 2 недели, месяц, 6 месяцев и год соответствено. Выпуск УКЭП является

@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../../scss/mixins";
 .calculator {
 	padding: 60px 0;
@@ -44,7 +45,7 @@
 	&__wrapper {
 		flex: 0 1 485px;
 		@media (max-width: 1330px) {
-			flex: auto;
+			flex: 0 0 auto;
 			width: 100%;
 		}
 	}
@@ -56,7 +57,8 @@
 	&__subtitle {
 		color: rgb(74, 188, 193);
 		@include adaptiveValue("font-size", 20, 16, 991, 320, 1);
-		line-height: 20px;
+		// line-height: 20px;
+		line-height: math.div(20, 20);
 	}
 	// .calculator__range
 	&__range {
@@ -135,8 +137,9 @@
 	// .calculator__price
 	&__price {
 		color: rgb(139, 139, 138);
-		font-size: 18px;
-		line-height: 20px;
+		@include adaptiveValue("font-size", 18, 16, 991, 767, 1);
+		line-height: 14px;
+		text-align: right;
 	}
 	// .calculator__popup
 	&__popup {
@@ -164,6 +167,7 @@
 		padding: 10px 0;
 		@media (max-width: 860px) {
 			border: none;
+			padding: 0;
 		}
 	}
 }
