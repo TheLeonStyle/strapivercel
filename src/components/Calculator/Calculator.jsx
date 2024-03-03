@@ -4,12 +4,14 @@ import styles from './Calculator.module.scss';
 const Calculator = () => {
   const [valueTrips, setValueTrips] = useState(1);
   const [valueEmployees, setValueEmployees] = useState(1);
+  const [showTariff, setShowTariff] = useState(false);
 
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-		// valueTrips * 39 - (39 - 0.02499) / 1000 + 1790 * valueEmployees
-    setTotalPrice(39 - (39 / 1000) * valueTrips);
+    // valueTrips * 39 - (39 - 0.02499) / 1000 + 1790 * valueEmployees
+
+    setTotalPrice(valueEmployees * 2790 + valueTrips * (150 - valueTrips * 0.15));
   }, [valueTrips, valueEmployees]);
 
   return (
@@ -79,13 +81,30 @@ const Calculator = () => {
 
           <div className={styles.calculator__row}>
             <p className={styles.calculator__subtitle}>Выпуск мобильной УКЭП:</p>
-            <p className={styles.calculator__price}>2790 руб./сотрудник (365 дней)</p>
+            <p
+              className={`${styles.calculator__price} ${styles.calculator__price_cursor}`}
+              onClick={() => setShowTariff((prev) => !prev)}>
+              2790 руб./сотрудник (365 дней)
+            </p>
             <div className={styles.calculator__popup}>
               По умолчанию тариф выпуска УКЭП стоит на 1 год использования. Вы можете выбрать
               интервалы: 2 недели, месяц, 6 месяцев и год соответствено. Выпуск УКЭП является
               обязательным для использования системы.
             </div>
           </div>
+
+          {showTariff && (
+            <div className={styles.calculator__outer}>
+              <div className={styles.calculator__row}>
+                <p className={styles.calculator__subtitle}>Тариф #1</p>
+                <p className={styles.calculator__price}>100 руб</p>
+              </div>
+              <div className={styles.calculator__row}>
+                <p className={styles.calculator__subtitle}>Тариф #2</p>
+                <p className={styles.calculator__price}>100 руб</p>
+              </div>
+            </div>
+          )}
 
           <div className={styles.calculator__inner}>
             {/* <div className={styles.calculator__row}>
